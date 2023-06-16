@@ -13,7 +13,8 @@ public class break_continue_example1 {
 		/* 
 		 * 문제: exam.list 파일에서 성적을 5~8번째 까지만 읽어서 화면에 출력
 		 * 문제푼날: 230616
-		 * 풀이: 나
+		 * 풀이: 선생님
+		 * 핵심: continue~break는 a~z사이의 수만 구할 때 요긴하게 쓸 수 있따!
 		 * */
 		
 		
@@ -26,24 +27,23 @@ public class break_continue_example1 {
 			String word = fscan.next();
 			int kor = Integer.parseInt(word);
 			
-			if ((i+1)<5) // 출력하지 말아라
+			if (i<4) // 0, 1, 2, 3, 4 출력하지 말아라
 				continue;
 			
-			
-			if ((i+1)>=5 && i<8) // 출력해라, 8번째 까지만
-				System.out.printf("%d,",kor);
-			
-			
-			if ((i+1)>8) {
+			if (i==8) // 8번째 부터는 더 이상 계산하지 말아라
 				break;
+			
+			System.out.printf("%d,",kor); // 출력해라, 5~8번째 까지만
+			
+			
 			}
 			
-
-		}
-
 		fscan.close();
 		fis.close();
 
+		}
+
+
 	}
 
-}
+
