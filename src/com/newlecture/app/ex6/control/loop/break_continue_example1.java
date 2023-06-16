@@ -11,9 +11,9 @@ public class break_continue_example1 {
 	public static void main(String[] args) throws IOException {
 
 		/* 
-		 * 문제: exam.list 파일에서 2번째 만나는 100부터 100을 빼고 출력해라
+		 * 문제: exam.list 파일에서 성적을 5~8번째 까지만 읽어서 화면에 출력
 		 * 문제푼날: 230616
-		 * 풀이: 선생님
+		 * 풀이: 나
 		 * */
 		
 		
@@ -21,18 +21,23 @@ public class break_continue_example1 {
 		FileInputStream fis = new FileInputStream("res/exam.list");
 		Scanner fscan = new Scanner(fis);
 		
-		for (int count = 0; fscan.hasNext();) {
+		for (int i=0;fscan.hasNext();i++) {
 			
 			String word = fscan.next();
 			int kor = Integer.parseInt(word);
-
-			if (kor == 100)
-				count++;
-
-			if (count < 2 || kor == 100)
+			
+			if ((i+1)<5) // 출력하지 말아라
 				continue;
-
-			System.out.printf("%d,", kor);
+			
+			
+			if ((i+1)>=5 && i<8) // 출력해라, 8번째 까지만
+				System.out.printf("%d,",kor);
+			
+			
+			if ((i+1)>8) {
+				break;
+			}
+			
 
 		}
 
