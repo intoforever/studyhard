@@ -2,9 +2,10 @@ package com.newlecture.app.ex6.control.loop;
 
 import java.util.Scanner;
 
-public class OmokProgram {
+public class while_do {
 
 	public static void main(String[] args) {
+
 		
 		{
 			for (int i = 0; i < 12; i++) {
@@ -31,30 +32,42 @@ public class OmokProgram {
 
 				System.out.println();
 				
-			} // for j
+			} // for i
 		}// 지역화
 		
-		
-		{
+		while(true){
+			Scanner scan = new Scanner(System.in);
+			
 			int ox = -1;
 			int oy = -1;
-			boolean oxquit = false;
-			while (!oxquit) {
+		
+			System.out.println("그만두기: -1");
+			System.out.print("(x sp y): ");
+		
+			ox = scan.nextInt();
+			if(ox == -1) {
+				System.out.println("종료");
+				break;
+			}// if ox == -1
+			oy = scan.nextInt();
+			if(oy == -1) {
+				System.out.println("종료");
+				break;
+			}// if oy == -1
+
+			while(ox != -1 && !(1<=ox && ox<=10)) {		// ||을 했을 때는 왜 안되는지 생각해보기
+			System.out.println("오목 좌표의 범위(-1 or 1~10)를 벗어났습니다.");
 			System.out.println("그만두기: -1");
 			System.out.print("(x sp y): ");
 			
-			Scanner scan = new Scanner(System.in);
 			ox = scan.nextInt();
 			oy = scan.nextInt();
-			
-			if(ox == -1 && !scan.hasNext()) { 			//ox값이 -1이면서 다음값이 없으면
-				oxquit = true;										//oxquit을 true로 바꾸고 반복 종료.
-				System.out.println("종료");
-				break;
-			} else {
+		
+			}// while 2
+		
 			for (int i = 0; i < 12; i++) {
 				for (int j = 0; j < 12; j++)
-
+					
 					if (i == 0 && j == 0)
 						System.out.print("┌");
 					else if (i == 0 && j == 11)
@@ -75,11 +88,9 @@ public class OmokProgram {
 						System.out.print("┴");
 					else
 						System.out.print("┼");
+				
 				System.out.println();
-			}// if
-
-			} // for j
-			}//while
-		} // 지역화
+			}// for i
+		}// while 1
 	}// main
 }// class
