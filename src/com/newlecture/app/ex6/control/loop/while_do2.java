@@ -2,11 +2,23 @@ package com.newlecture.app.ex6.control.loop;
 
 import java.util.Scanner;
 
-public class while_do {
+import org.w3c.dom.ls.LSOutput;
+
+public class while_do2 {
 
 	public static void main(String[] args) {
-
 		
+		System.out.println("┌───────────┐");
+		System.out.println("│         Omok Game        │");
+		System.out.println("└───────────┘");
+		System.out.println("1. 게임시작");
+		System.out.println("2. 도움말");
+		System.out.println("3. 종료");
+		System.out.print(">");
+		
+		Scanner scan = new Scanner(System.in);
+		int menu = scan.nextInt();								//오목게임의 메뉴를 받을 것이니 변수명 menu
+		if (menu == 1) {
 		{
 			for (int i = 0; i < 12; i++) {
 				for (int j = 0; j < 12; j++)
@@ -36,8 +48,6 @@ public class while_do {
 		}// 지역화
 		
 		while(true){
-			Scanner scan = new Scanner(System.in);
-			
 			int ox = -1;
 			int oy = -1;
 		
@@ -88,5 +98,17 @@ public class while_do {
 					System.out.println();
 			}// for i
 		}// while 1
+		
+		//2. 도움말
+		} else if (menu == 2){
+			System.out.println("도움말");
+		
+		//3. 종료
+		} else if (menu == 3){
+			System.out.println("종료");
+		}
+		else {
+			System.out.println("메뉴는 1부터 3까지 밖에 없습니다..");
+		}
 	}// main
 }// class
